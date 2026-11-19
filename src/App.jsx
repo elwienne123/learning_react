@@ -18,6 +18,10 @@ let currentPlayer ='X';
 }
 
 function App() {
+  const [players,setPlayers]=useState({
+    X:'Player 1',
+    O:'Player 2'
+  });
   const [gameTurns, setGameTurns] = useState([]);
   //const [winner, setWinner] = useState(false);
   //const [activePlayer, setActivePlayer] = useState('X');
@@ -51,6 +55,14 @@ function App() {
   setGameTurns([]);
   //setWinner(null);
   //setActivePlayer('X');
+ }
+ function handlePlayerNameChange(symbol, newName){
+  setPlayers((prevPlayers)=>{
+    return {
+      ...prevPlayers,
+      [playerSymbol]: newName
+    }
+  })
  }
   return (
     <main>
